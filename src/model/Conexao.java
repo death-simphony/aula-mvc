@@ -1,0 +1,25 @@
+package model;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author gabriel
+ */
+public class Conexao {
+    private static Connection conexao;
+    
+    public static Connection getConexao(){
+        if (conexao == null) {
+            try {
+                conexao  = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdAula", "root", ""); //endereco BD
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados");
+                System.out.println(ex);
+            }
+        }
+        return conexao;
+    }
+}
