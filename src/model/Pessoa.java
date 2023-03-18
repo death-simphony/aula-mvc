@@ -11,6 +11,16 @@ public class Pessoa {
     private String endereco;
     private String telefone;
     private int cpf;
+
+    public Pessoa(String nome, String endereco, String telefone, int cpf) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.cpf = cpf;
+    }
+
+    public Pessoa() {
+    }
     
     //getters e setters
     public String getNome() {
