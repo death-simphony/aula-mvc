@@ -30,7 +30,7 @@ public class ServicePessoa {
         }
     }
     
-    public void cadastrar(String nome, String endereço, String telefone, int cpf) {
+    public void cadastrar(String nome, String endereço, String telefone, long cpf) {
         Pessoa pessoaCad; 
         pessoaCad = new Pessoa(nome, endereço, telefone, cpf);
         System.out.println("ola mundo");

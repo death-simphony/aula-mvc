@@ -20,7 +20,7 @@ public class PessoaDAO {
             pst.setString(1, pessoaObj.getNome());
             pst.setString(2, pessoaObj.getEndereco());
             pst.setString(3, pessoaObj.getTelefone());
-            pst.setInt(4, pessoaObj.getCpf());
+            pst.setLong(4, pessoaObj.getCpf());
             
             pst.execute(); //executa a query
             pst.close();

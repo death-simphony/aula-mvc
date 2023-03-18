@@ -10,9 +10,9 @@ public class Pessoa {
     private String nome;
     private String endereco;
     private String telefone;
-    private int cpf;
+    private long cpf;
 
-    public Pessoa(String nome, String endereco, String telefone, int cpf) {
+    public Pessoa(String nome, String endereco, String telefone, long cpf) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -47,11 +47,11 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
     

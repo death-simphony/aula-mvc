@@ -35,11 +35,14 @@ public class ControlePessoa implements ActionListener{
             
             System.out.println("ola mundo");
             
-            servicePessoa.cadastrar(telaPessoa.getjTextFieldNome().getText(), telaPessoa.getjTextFieldEndereco().getText(), 
-                telaPessoa.getjTextFieldTelefone().getText(), Integer.parseInt(telaPessoa.getjTextFieldCPF().getText()));
+            String nome = telaPessoa.getjTextFieldNome().getText();
+            String endereco = telaPessoa.getjTextFieldEndereco().getText();
+            String telefone = telaPessoa.getjTextFieldTelefone().getText();
+            long cpf = Long.parseLong(telaPessoa.getjTextFieldCPF().getText());
+            
+            servicePessoa.cadastrar(nome, endereco, telefone, cpf);
          
             System.out.println("ola mundo");
-
             
         }
     }
