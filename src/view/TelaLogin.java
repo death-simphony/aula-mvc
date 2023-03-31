@@ -67,6 +67,16 @@ public class TelaLogin extends javax.swing.JDialog {
         jLabel2.setText("Login");
 
         jTextFieldLogin.setText("login");
+        jTextFieldLogin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldLoginFocusGained(evt);
+            }
+        });
+        jTextFieldLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextFieldLoginMouseClicked(evt);
+            }
+        });
         jTextFieldLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldLoginActionPerformed(evt);
@@ -80,6 +90,16 @@ public class TelaLogin extends javax.swing.JDialog {
         jLabel3.setText("®gabriel enterprises");
 
         jPasswordFieldSenha.setText("password");
+        jPasswordFieldSenha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordFieldSenhaFocusGained(evt);
+            }
+        });
+        jPasswordFieldSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordFieldSenhaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,6 +140,21 @@ public class TelaLogin extends javax.swing.JDialog {
 
     private void jTextFieldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLoginActionPerformed
     }//GEN-LAST:event_jTextFieldLoginActionPerformed
+
+    private void jTextFieldLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldLoginMouseClicked
+        jTextFieldLogin.setText("");
+    }//GEN-LAST:event_jTextFieldLoginMouseClicked
+
+    private void jPasswordFieldSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaMouseClicked
+        jPasswordFieldSenha.setText("");
+    }//GEN-LAST:event_jPasswordFieldSenhaMouseClicked
+
+    private void jTextFieldLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldLoginFocusGained
+    }//GEN-LAST:event_jTextFieldLoginFocusGained
+
+    private void jPasswordFieldSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaFocusGained
+        jPasswordFieldSenha.setText("");
+    }//GEN-LAST:event_jPasswordFieldSenhaFocusGained
 
     /**
      * @param args the command line arguments
