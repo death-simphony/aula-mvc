@@ -22,7 +22,8 @@ public class ControlePrincipal implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource().equals(telaPrincipal.getjMenuItemPessoa())) {
             //instancia a tela de cadastro caso clique no botao pessoa no menu bar
-            ControlePessoa controlePessoa = new ControlePessoa(telaPrincipal);
+            //ControlePessoa controlePessoa = new ControlePessoa(telaPrincipal);
+            ControleListaPessoas controleListaPessoas = new ControleListaPessoas(telaPrincipal);
         }
     }
     

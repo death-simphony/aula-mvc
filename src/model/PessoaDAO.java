@@ -1,6 +1,8 @@
 package model;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -9,7 +11,7 @@ import javax.swing.JOptionPane;
  */
 public class PessoaDAO {
 
-    public void inserir(Pessoa pessoa) {
+    public void inserir(Pessoa pessoa) { //inserir objeto pessoa no BD
         
         String insertSQL = "INSERT INTO pessoa (nome, endereço, telefone, cpf) values (?,?,?,?)";
         Pessoa pessoaObj = pessoa;
@@ -36,4 +38,35 @@ public class PessoaDAO {
     
     }
 
+    public ArrayList<Pessoa> listar(){ //retorna uma lista no formato ArrayList
+        String sql = "SELECT * FROM pessoa ORDER BY nome";  //query
+        
+        ArrayList<Pessoa> lista = new ArrayList<>(); //objeto arraylist
+        
+        PreparedStatement pst;
+        ResultSet rs;
+        
+        try {
+            pst = Conexao.getConexao().prepareStatement(sql);
+            rs = pst.executeQuery();
+            
+            while(rs.next()) {
+                Pessoa p = new Pessoa();
+                p.setNome(rs.getString("nome"));
+                p.setEndereco(rs.getString("endereço"));
+                p.setTelefone(rs.getString("telefone"));
+                p.setCpf(Long.parseLong(rs.getString("cpf")));
+                lista.add(p);
+            }
+            
+            pst.close();
+            rs.close();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Não foi possível realizar a listagem!");
+            System.out.println(e);
+        }
+        return lista;
+        
+    }
 }
