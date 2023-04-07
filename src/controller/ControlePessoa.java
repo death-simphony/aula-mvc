@@ -1,10 +1,9 @@
 package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 import service.ServicePessoa;
+import view.TelaListagemPessoas;
 import view.TelaPessoa;
-import view.TelaPrincipal;
 
 /**
  *
@@ -17,8 +16,8 @@ public class ControlePessoa implements ActionListener{
     private TelaPessoa telaPessoa;
     ServicePessoa servicePessoa;
     
-    public ControlePessoa(TelaPrincipal telaPrincipal) { //recebe uma classe telaPrincipal como argumento para se referir no parent
-        telaPessoa = new TelaPessoa(telaPrincipal, true); //true = nao consegue clicar na tela de trás
+    public ControlePessoa(TelaListagemPessoas telaListagemPessoas, boolean newEdit) { //recebe uma classe telaPrincipal como argumento para se referir no parent
+        telaPessoa = new TelaPessoa(telaListagemPessoas, true); //true = nao consegue clicar na tela de trás
         servicePessoa = new ServicePessoa(this.telaPessoa); //instancia objeto ServicePessoa
         telaPessoa.getjButtonCadastrar().addActionListener(this); //comeca a escutar o botao cadastrar
         telaPessoa.getjButtonLimpar().addActionListener(this); //comeca a escutar o botao limpar

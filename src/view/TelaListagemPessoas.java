@@ -12,18 +12,17 @@ import javax.swing.table.DefaultTableModel;
 public class TelaListagemPessoas extends javax.swing.JDialog {
     
     //atributos
-    private DefaultTableModel defaultTableModel;
+    private final DefaultTableModel model;
 
     public TelaListagemPessoas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jTablePessoas.getColumnModel().getColumn(0).setPreferredWidth(5); //tamanho das colunas
-        defaultTableModel = (DefaultTableModel) jTablePessoas.getModel(); //guarda o modelo da tabela
-        setLocationRelativeTo(null);
+        jTablePessoas.getColumnModel().getColumn(0).setPreferredWidth(10); //tamanho das colunas
+        model = (DefaultTableModel) jTablePessoas.getModel(); //guarda o modelo da tabela
+        this.setLocationRelativeTo(null);
     }
     
     //getters
-
     public JButton getjButtonEditar() {
         return jButtonEditar;
     }
@@ -44,8 +43,8 @@ public class TelaListagemPessoas extends javax.swing.JDialog {
         return jTextFieldPesquisar;
     }
     
-    public DefaultTableModel getDefaultTableModel() {
-        return defaultTableModel;
+    public DefaultTableModel getModel() {
+        return model;
     }
     
     @SuppressWarnings("unchecked")
@@ -64,7 +63,6 @@ public class TelaListagemPessoas extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pessoas");
         setMinimumSize(new java.awt.Dimension(967, 764));
-        setPreferredSize(new java.awt.Dimension(967, 764));
         setResizable(false);
         setSize(new java.awt.Dimension(967, 764));
 
@@ -85,17 +83,18 @@ public class TelaListagemPessoas extends javax.swing.JDialog {
 
         jTablePessoas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Endereço", "Telefone", "CPF"
+                "ID", "Nome", "Endereço", "Telefone", "CPF"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

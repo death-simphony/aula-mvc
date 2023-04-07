@@ -24,22 +24,23 @@ public class ControleListaPessoas implements ActionListener, KeyListener {
         telaListagemPessoas.getjButtonNovo().addActionListener(this);
         telaListagemPessoas.getjButtonEditar().addActionListener(this);
         telaListagemPessoas.getjButtonExcluir().addActionListener(this);
-        serviceListagemPessoas = new ServiceListagemPessoas(telaListagemPessoas);
+        serviceListagemPessoas = new ServiceListagemPessoas(this.telaListagemPessoas);
         serviceListagemPessoas.listar();
         telaListagemPessoas.setVisible(true);
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
     //métodos actionlistener e keylistener
     @Override
     public void actionPerformed(ActionEvent ae) {
+          if (ae.getSource().equals(telaListagemPessoas.getjButtonNovo())) { // -> se a ação ocorre no botao novo
+              serviceListagemPessoas.novo(telaListagemPessoas);
+          
+          } else if (ae.getSource().equals(telaListagemPessoas.getjButtonEditar())) {
+              serviceListagemPessoas.novo(telaListagemPessoas);
+          
+          } else if (ae.getSource().equals(telaListagemPessoas.getjButtonExcluir())) {
+              serviceListagemPessoas.excluir();
+          }
     }
 
     @Override

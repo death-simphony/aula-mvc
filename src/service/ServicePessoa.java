@@ -35,6 +35,7 @@ public class ServicePessoa {
         pessoaCad = new Pessoa(nome, endereço, telefone, cpf);
         System.out.println("ola mundo");
         pessoaDAO.inserir(pessoaCad);
+        telaPessoa.dispose();
     }
     
 }

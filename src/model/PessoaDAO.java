@@ -52,21 +52,43 @@ public class PessoaDAO {
             
             while(rs.next()) {
                 Pessoa p = new Pessoa();
+                p.setId(rs.getInt("id"));
                 p.setNome(rs.getString("nome"));
                 p.setEndereco(rs.getString("endereço"));
                 p.setTelefone(rs.getString("telefone"));
-                p.setCpf(Long.parseLong(rs.getString("cpf")));
+                p.setCpf(rs.getLong("cpf"));
                 lista.add(p);
             }
             
             pst.close();
             rs.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Não foi possível realizar a listagem!");
             System.out.println(e);
         }
         return lista;
         
     }
+    
+    public boolean excluir(int primaryKey) {
+        String sql = "DELETE FROM pessoa WHERE id = ?";
+        PreparedStatement pst;
+        
+        try {
+            pst = Conexao.getConexao().prepareStatement(sql);
+            pst.setInt(1, primaryKey);
+            pst.execute();
+            pst.close();
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Não foi possível excluir!");
+            System.out.println(e);
+            return false;
+        }
+        
+        return true;
+        
+    }
+    
 }

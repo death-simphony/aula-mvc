@@ -7,6 +7,7 @@ package model;
 public class Pessoa {
     
     //atributos
+    private int id;
     private String nome;
     private String endereco;
     private String telefone;
@@ -21,8 +22,16 @@ public class Pessoa {
 
     public Pessoa() {
     }
-    
+
     //getters e setters
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {    
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
